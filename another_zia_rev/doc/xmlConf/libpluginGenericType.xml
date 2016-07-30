@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no"?>
+<!DOCTYPE plugin_conf SYSTEM "plugin_conf.dtd">
+
+<hives>
+  <hive name="GenericType">
+  <entry key="html">text/html</entry>
+  <entry key="txt">text/plain</entry>
+  <entry key="mp3">audio/mpeg</entry>
+  <entry key="avi">video/x-msvideo</entry>
+  <entry key="mpeg">video/mpeg</entry>
+  <entry key="mpeg">video/mpeg</entry>
+  <entry key="mpeg">video/mpg</entry>
+  <entry key="flv">video/x-flv</entry>
+  <entry key="ogv">video/ogg</entry>
+  <entry key="mp4">video/mp4</entry>
+  <entry key="mp3">audio/mpeg</entry>
+  <entry key="pl">text/x-perl</entry>
+  <entry key="pm">text/x-perl</entry>
+  <entry key="py">text/x-python</entry>
+  <entry key="ico">image/x-icon</entry>
+  <entry key="png">image/png</entry>
+  <entry key="jpeg">image/jpeg</entry>
+  <entry key="jpg">image/jpeg</entry>
+  <entry key="jpe">image/jpeg</entry>
+  <entry key="gif">image/gif</entry>
+  <entry key="xml">application/xml</entry>
+  <entry key="xsl">application/xml</entry>
+  <entry key="xsd">application/xml</entry>
+  <entry key="xhtml">application/xhtml+xm</entry>
+  <entry key="rss">application/rss+xml</entry>
+  <entry key="js">application/javascript</entry>
+  <entry key="ogg">audio/ogg</entry>
+  <entry key="gtar">application/x-gt</entry>ar
+  <entry key="tgz">application/x-gtar</entry>
+  <entry key="rb">application/x-ruby</entry>
+  <entry key="php4">application/x-httpd-php4</entry>
+  <entry key="php">application/x-httpd-php</entry>
+  <entry key="es">application/ecmascript</entry>
+  </hive>
+</hives>

@@ -1,0 +1,120 @@
+9
+
+dir
+345
+file:///afs/epitech.net/users/all/dally_r/public/ZiaProject/plugins
+file:///afs/epitech.net/users/all/dally_r/public/ZiaProject
+
+
+
+2009-09-24T21:35:09.594970Z
+343
+chris
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6e72ffaa-16e4-4679-b0b4-8e0d4bb463c2
+
+list.ods
+file
+
+
+
+
+2009-09-24T22:34:51.000000Z
+d4eda16f68866a75788abc58574572c4
+2009-09-24T21:33:01.073657Z
+342
+chris
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13204
+
+OutputEncoder
+dir
+
+Utils
+dir
+
+BodyDecoder
+dir
+
+InputDecoder
+dir
+
+ClosedConnection
+dir
+
+NewConnection
+dir
+
+BodyProcessing
+dir
+
+list
+file
+230
+
+
+
+2009-09-21T23:16:21.000000Z
+a50fd9661fe75f277cb2cdba5bf859a6
+2009-09-20T22:45:12.761676Z
+201
+chris
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7918
+
+BodyEncoder
+dir
+

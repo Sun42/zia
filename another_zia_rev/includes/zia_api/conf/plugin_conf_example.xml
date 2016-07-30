@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no"?>
+<!DOCTYPE plugin_conf SYSTEM "plugin_conf.dtd">
+
+<!--
+	ZIA API - epitech_2011s
+	Copyright © EPITECH 2009
+
+	Plugin XML configuration example.
+	As you can see, many hive can be defined (or extended).
+-->
+
+<hives>
+	<hive name="file mapper">
+		<entry key="root directory">/var/www</entry>
+		<entry key="directories map">
+			"/usr/lib/cgi-bin/" = "/toto"
+			"/home/www-devel/www" = "/devel"
+		</entry>
+	</hive>
+
+	<hive name="ssl">
+		<entry key="certificats directory">/etc/ssl/certs</entry>
+	</hive>
+</hives>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no"?>
+<!DOCTYPE plugin_conf SYSTEM "plugin_conf.dtd">
+
+<hives>
+  <hive name="PluginAllow">
+    <entry key="DirectIP">
+      127.0.0.1
+      10.247.8.4
+      10.247.7.3
+    </entry>
+  </hive>
+</hives>

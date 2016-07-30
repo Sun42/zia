@@ -1,0 +1,28 @@
+IModule
+{
+	const char*		getName() const = 0;
+	int				getVersion() const = 0;
+	template <typename T, typename U>
+	bool			exec(T& output, U const & input) = 0;
+	
+	bool			exec(std::string& output, std::string const & input) = 0;
+};
+
+extern "C" : IModule*	getModule();
+
+
+PhpModule;
+PerlModule;
+RubyModule;
+LogsModule; prend en parametre les requetes http complete
+
+
+fichiers configuration du serveur
+- repertoire par defaut du serveur
+- fichier .htaccess
+- Module a charge au demarrage du serveur (path du module)
+
+Load des modules:
+- Entree standart
+- Port sur le serveur
+- Interface graphique

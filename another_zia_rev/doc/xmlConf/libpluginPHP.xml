@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no"?>
+<!DOCTYPE plugin_conf SYSTEM "plugin_conf.dtd">
+
+<!--  -->
+<!--   -->
+<!--    ../libs/libDevHelper.so -->
+
+<hives>
+	<hive name="PHP-Plugin">
+		<entry key="binary path">/usr/bin/php</entry>
+		<entry key="root files">index.php index.html</entry>
+	</hive>
+</hives>

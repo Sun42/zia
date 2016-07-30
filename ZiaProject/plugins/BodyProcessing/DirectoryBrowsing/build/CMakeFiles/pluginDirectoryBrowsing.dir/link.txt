@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC  -Wextra -Wall -fPIC  -shared -Wl,-soname,libpluginDirectoryBrowsing.so -o /home/chris/Documents/ZiaProject/libs/libpluginDirectoryBrowsing.so CMakeFiles/pluginDirectoryBrowsing.dir/src/filterDirectoryBrowsing.cpp.o CMakeFiles/pluginDirectoryBrowsing.dir/src/pluginDirectoryBrowsing.cpp.o -Wl,-Bstatic -lboost_filesystem-gcc43-mt-1_39 -Wl,-Bdynamic 

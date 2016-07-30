@@ -1,0 +1,38 @@
+~~~~~~~~~~~~~~~~~~~~~~~BUG~~~~~~~~~~~~~~~~~~~~
+- pourquoi le IREquestBody contient le header de la requete ?? => erasle osStream avant de write dedans lors dun take over
+- bug allocation memoire sur lenvoi de plusieurs fichiers massifs => voir chunk transfer
+- DIrectoryBrowsing et FileExist renvoi du xml-> mettre content type pour du xml 
+
+~~~~~~~~~~~~~~~~~~~~~~ DOC ~~~~~~~~~~~~~~~~~~~~~~
+
+- Faire la doc pour la prochaine soutenance voir avec karim s'il s'en occupe (il s'en occupe !)
+- Mettre a jour l'UML des modifications
+- Mettre les commentaires a jour ds doxygen
+
+~~~~~~~~~~~~~~~~~~~~~~ Test ~~~~~~~~~~~~~~~~~~~~~~
+
+- faire des upload et download pour voir les requetes http envoye
+- etudier le fonctionnement de post get head
+- Voir comment faire des chunk transfer (donc plusieurs envois, pour de gros fichiers) => comment un filter peut-il envoyer plusieurs responses??
+- voir si le mime type d'une ressource est correct lorsqu'il existe des variables dans l'url ex http://www.google.fr?var1=1&var2=2 pour pluginFileExist et MimeType etc => spliter le '?' first
+- gerer les url encode / decode ex: http://csundas.free.fr/MP3/%20-%20FREDERICO%20FRANCCream.mp3
+
+
+- requetes simultanees
+~~~~~~~~~~~~~~~~~~~~~~ API ~~~~~~~~~~~~~~~~~~~~~~
+
+- Implementer un logger pour l api
+
+~~~~~~~~~~~~~~~~~~~~~~ Code ~~~~~~~~~~~~~~~~~~~~~~
+
+- voir le boost asio ssl
+- voir les sessions cookies
+- rajouter la fermeture de la connection quand la requete contient  Connection : Close
+- Call processBodyEnding par Session.cpp
+
+
+
+~~~~~~~~~~~~~~~~~~~~ Parser ~~~~~~~~~~~~~~~~~~~~~~~~
+- Au fail du Parser dans Session.cpp, renvoyer erreur 400
+
+

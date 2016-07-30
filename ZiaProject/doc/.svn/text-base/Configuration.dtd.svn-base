@@ -1,0 +1,5 @@
+<!ELEMENT zconf (Plugin, Items)>
+<!ELEMENT Plugin (Name, Version)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Version (#PCDATA)>
+<!ELEMENT Items (#PCDATA)>

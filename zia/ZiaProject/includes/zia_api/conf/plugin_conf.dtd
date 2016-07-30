@@ -1,0 +1,22 @@
+<!--
+	ZIA API - epitech_2011s
+	Copyright © EPITECH 2009
+
+	Plugin XML configuration file DTD.
+
+	For check XML file with this DTD, try something like that:
+		xmllint - -valid - -noout plugin_conf.xml
+
+	or if the DTD path is not directly accessible:
+		xmllint - -valid - -noout - -dtdvalid plugin_conf.dtd plugin_conf.xml
+
+	Note: remove space between '-' (yes, XML DTD specification sucks).
+-->
+
+<!ELEMENT hives ( hive* )>
+
+<!ELEMENT hive ( entry+ )>
+<!ATTLIST hive name CDATA #REQUIRED>
+
+<!ELEMENT entry ( #PCDATA )>
+<!ATTLIST entry key CDATA #REQUIRED>

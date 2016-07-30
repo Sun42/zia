@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no"?>
+<!DOCTYPE plugin_conf SYSTEM "plugin_conf.dtd">
+
+<!--
+    Exemple de conf pour notre serveur
+    mettre le fichier de confi a cote du binaire du zia et le nomme ZiaConf.xml
+-->
+
+<hives>
+  <hive name="Ports">
+    <entry key="SSL">443</entry>
+    <entry key="Http">80</entry>
+    <entry key="PluginLoader">42000</entry>
+  </hive>
+  <hive name="Main">
+    <entry key="RootDirectory">/var/www</entry>
+    <entry key="ServerAdmin">youa@your.address</entry>
+    <entry key="ServerName">Zia</entry>
+    <entry key="LogsDirectory">../logs/</entry>
+    <entry key="KeepAlive">On</entry>
+    <entry key="MaxKeepAlive">300</entry>
+  </hive>
+  <hive name="Plugins">
+    <entry key="LoadPlugin">
+      /home/yann/dev/cpp/projet/zia/plugins/BodyProcessing/DirectoryBrowsing/build/lib/libpluginDirectoryBrowsing.so
+    </entry>
+    <entry key="LoadDirectory">
+      ../libs/
+    </entry>
+  </hive>
+</hives>

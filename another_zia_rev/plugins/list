@@ -1,0 +1,131 @@
+Liste des filtres:
+
+NewConnection :
+- Blacklist, accepter certaines ip			/*\En Cours/*\
+
+InputDecoder :
+- SSL decoder
+
+--------------- PARSING ----------------------
+
+BodyDecoder :
+- Gzip decode
+- Base64 decode
+
+BodyProcessing :
+- CheckMethod						/*\ Debut /*\        20
+- FileExist (check existence of URI)			/*\ Presque fini /*\ 19
+- Check right to access to the URI			/*\ En cours /*\     18
+- PHP                                                                       5
+- Perl Interpreter Module                                                   4
+- GenericType (download)				/*\ En cours /*\    3
+- COMMANDE TRACE					/*\ Presque fini/*\ 2
+- directory browsing					/*\ Presque fini/*\ 1
+
+
+BodyEncoder :
+- Gzip encode
+- Base64 encode
+
+OutputEncoder :
+- SSL encoder
+
+ClosedConnection :
+- ????
+
+
+
+100 Continue
+Le client DEVRAIT continuer suite à cette demande. Cette réponse intérimaire est utilisée pour informer le client que la partie initiale de la demande a été reçue et n'a pas encore été rejetée par le serveur. Le client DEVRAIT continuer en envoyant le reste de la demande ou, si la demande est déjà terminée, ignorer cette réponse. Le serveur DOIT envoyer une réponse finale après la fin de la demande. Voir au paragraphe 8.2.3 un exposé détaillé de l'utilisation et du traitement de ce code d'état. 
+
+200 OK
+La demande a réussi. Les informations retournées avec la réponse dépendent de la méthode utilisée dans la demande, par exemple :
+GET ; une entité correspondant à la ressource demandée est envoyée dans la réponse ;
+HEAD ; des champs d’en-tête d’entité correspondant à la ressource demandée sont envoyés dans la réponse sans aucun corps de message ;
+POST ; une entité décrivant ou contenant le résultat de l'action ;
+TRACE ; une entité contenant le message de demande tel que reçu par le serveur final. 
+
+204 Pas de contenu
+Le serveur a satisfait à la demande mais n'a pas besoin de retourner un corps d'entité, et pourrait vouloir retourner des méta-informations mises à jour. La réponse PEUT inclure de méta-informations nouvelles ou mises à jour sous la forme d'en-tête d'entité, qui si elles sont présentes DEVRAIENT être associées à la variante demandée.
+Si le client est un agent d’utilisateur, il NE DEVRAIT PAS changer sa vision du document par rapport à celle qui a causé l'envoi de la demande. Cette réponse est principalement destinée à permettre l'entrée d'actions qui doivent avoir lieu sans provoquer de changement de la vision du document actif de l'agent d’utilisateur, bien que toutes méta-informations nouvelles ou mises à jour DEVRAIENT être appliquées au document en cours du point de vue actif de l'agent d’utilisateur.
+La réponse 204 NE DOIT PAS inclure de corps de message, et donc, elle est toujours terminée par la première ligne vide après les champs d’en-tête.
+
+206 Contenu partiel
+Le serveur a satisfait à la demande GET partielle pour la ressource. La demande DOIT avoir un champ d’en-tête Range (paragraphe 14.35) indiquant la gamme désirée, et PEUT avoir un champ d’en-tête If-Range (paragraphe 14.27) pour rendre la demande conditionnelle.
+La réponse DOIT inclure les champs d’en-tête suivants :
+-   Un champ d’en-tête Content-Range (paragraphe 14.16) indiquant la gamme incluse dans cette réponse, ou un type de contenu multiparties/gamme d'octets incluant les champs de gamme de contenu pour chaque partie. Si un champ d’en-tête Content-Length est présent dans la réponse, sa valeur DOIT correspondre au nombre réel d'octets transmis dans le corps de message.
+-   Date.
+-   ETag et/ou Content-Location, si l'en-tête est à envoyer dans une réponse 200 à la même demande.
+-   Expires, Cache-Control, et/ou Vary, si la valeur de champ diffère de celle envoyée dans toute réponse précédente à la même variante.
+Si la réponse 206 est le résultat d'une demande If-Range qui a utilisé un valideur d'antémémoire fort (voir au paragraphe 13.3.3), la réponse NE DEVRAIT PAS inclure d'autre en-tête d'entité. Si la réponse est le résultat d'une demande If-Range qui a utilisé un valideur faible, la réponse NE DOIT PAS inclure d'autre en-tête d'entité ; ceci est destiné à empêcher les incohérences entre les corps d'entité en antémémoire et les en-têtes mis à jour. Autrement, la réponse DOIT inclure tous les en-têtes d'entité qui auraient été retournés avec une réponse 200 (OK) à la même demande.
+Une antémémoire NE DOIT PAS combiner une réponse 206 avec un autre contenu précédemment mis en mémoire si les en-têtes ETag ou Last-Modified ne correspondent pas exactement, voir au paragraphe 13.5.4.
+Une antémémoire qui n'accepte pas les en-têtes Range et Content-Range NE DOIT PAS mettre en antémémoire les réponses 206 (Partiel). 
+
+304 Non modifié
+Si le client a effectué une demande GET conditionnelle et si l'accès est autorisé, mais que le document n'a pas été modifié, le serveur DEVRAIT répondre par ce code d'état. La réponse 304 NE DOIT PAS contenir un corps de message, et donc elle est toujours terminée par la première ligne vide après le champ d’en-tête.
+La réponse DOIT inclure les champs d’en-tête suivants :
+- Date, sauf si son omission est exigée par le paragraphe 14.18.1.
+Si un serveur d’origine sans horloge obéit à ces règles, et si les mandataires et clients ajoutent leur propre Date à toute réponse reçue qui n'en a pas (comme déjà spécifié par la [RFC 2068], paragraphe 14.19), les antémémoires fonctionneront correctement.
+- ETag et/ou Content-Location, si l'en-tête a été envoyé dans une réponse 200 à la même demande.
+- Expires, Cache-Control, et/ou Vary, si la valeur de champ diffère de celle envoyée dans toute réponse précédente pour la même variante.
+Si le GET conditionnel a utilisé un valideur fort d'antémémoire (voir au paragraphe 13.3.3), la réponse NE DEVRAIT PAS inclure d'autres en-têtes d'entité. Autrement, (c’est-à-dire, si le GET conditionnel a utilisé un valideur faible), la réponse NE DOIT PAS inclure d'autre en-tête d'entité ; ceci empêche les incohérences entre corps d'entité en antémémoire et en-têtes mis à jour.
+Si une réponse 304 indique une entité qui n'est pas actuellement en antémémoire, l'antémémoire DOIT ne pas tenir compte de la réponse et répéter la demande sans la condition.
+Si une antémémoire utilise une réponse 304 reçue pour mettre à jour une entrée d'antémémoire, l'antémémoire DOIT mettre à jour l'entrée pour refléter toute nouvelle valeur de champ données dans la réponse. 
+
+400 	Bad Request 	
+La syntaxe de la requête est erronée
+
+401 	Unauthorized 	
+Une authentification est nécessaire pour accéder à la ressource
+
+403 	Forbidden 	
+L'authentification est refusée. Contrairement à l'erreur 401, aucune demande d'authentification ne sera faite
+
+404 	Not Found 	
+Document non trouvé
+
+406 	Not Acceptable 	
+Toutes les réponses possibles seront refusées.
+
+407 	Proxy Authentication Required 	
+Accès à la ressource autorisé par identification avec le proxy
+
+408 	Request Time-out 	
+Temps d'attente d'une réponse du serveur écoulé
+
+409 	Conflict 	
+La requête ne peut être traitée à l'état actuel
+
+410 	Gone 	
+La ressource est indisponible et aucune adresse de redirection n'est connue
+
+411 	Length Required 	
+La longueur de la requête n'a pas été précisée
+
+412 	Precondition Failed 	
+Préconditions envoyées par la requête non-vérifiées
+
+413 	Request Entity Too Large 	
+Traitement abandonné dû à une requête trop importante
+
+415 	Unsupported Media Type
+Format de requête non-supportée pour une méthode et une ressource données
+
+416 	Requested range unsatisfiable
+Champs d'en-tête de requête 'range' incorrect.
+
+417 	Expectation failed
+Comportement attendu et défini dans l'en-tête de la requête insatisfaisable
+
+
+500 	Internal Server Error
+Erreur interne du serveur
+
+501 	Not Implemented
+Fonctionnalité réclamée non supportée par le serveur
+
+503 	Service Unavailable
+Service indisponible
+
+505 	HTTP Version not supported
+Version HTTP non gérée par le serveur

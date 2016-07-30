@@ -1,0 +1,8 @@
+Fichier de confs:
+
+- Mettre les ports par defaut pour http et https
+- repertoire source : root racine pour Richaaaard
+- Module a loader par defaut
+- ServerAdmin you@your.address
+- ServerName www.example.com
+- repertoire pour les logs

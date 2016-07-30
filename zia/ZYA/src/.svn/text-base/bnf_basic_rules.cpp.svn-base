@@ -1,0 +1,131 @@
+#include <boost/spirit/include/classic_core.hpp>
+#include <boost/spirit/include/classic_push_back_actor.hpp>
+#include <iostream>
+#include "ZiaException.h"
+using namespace BOOST_SPIRIT_CLASSIC_NS;
+
+
+int main()
+{
+  rule<> OCTET          = anychar_p;/*(any 8-bit sequence of data)*/
+  rule<> CHAR           = range_p(0, 127); /*(any US-ASCII character (octets 0 - 127))*/
+  rule<> UPALPHA        = upper_p;/*(any US-ASCII uppercase letter "A".."Z")*/
+  rule<> LOALPHA        = lower_p;/*(any US-ASCII lowercase letter "a".."z")*/
+  rule<> ALPHA          = (UPALPHA | LOALPHA);
+  rule<> DIGIT          = digit_p;/*(any US-ASCII digit "0".."9")*/
+  rule<> CTL            = cntrl_p;/*(any US-ASCII control character (octets 0 - 31) and DEL (127))*/
+  rule<> CTLS		= +(cntrl_p);
+  rule<> CTL_N		= ~range_p(0, 31) & ~ch_p(127); /*non control char*/
+  rule<> CTLS_N		= +(CTL_N);/*non control chars*/
+  rule<> HT             = ch_p('\t');/*(US-ASCII HT, horizontal-tab (9))*/
+  rule<> HT_N             = ~ch_p('\t');/* non HT*/
+  rule<> SP		=  ch_p(' ');/* <US-ASCII SP, space (32)>*/
+  rule<> SP_N		= ~ch_p(' ');
+  rule<> CR		= ch_p('\r');
+  rule<> LF		= ch_p('\n');
+  rule<> CRLF           = CR >> LF;
+  rule<> LWS            = !(CRLF) & +( SP | HT );
+
+  rule<> TEXT           = (CTLS_N & (OCTET | LWS));/*<any OCTET except CTLs, but including LWS>*/
+  rule<> HEX            = xdigit_p;
+  rule<> separators     = (ch_p('(') | ch_p(')') | ch_p('<') | ch_p('>') |
+ 			  ch_p('@') | ch_p(',') | ch_p(';') | ch_p(':') |
+ 			  ch_p('\\') | ch_p('\"') | ch_p('/') | ch_p('[') |
+ 			  ch_p(']') | ch_p('?') | ch_p('=') | ch_p('{') |
+ 			  ch_p('}') | SP | HT);
+  rule<>separators_n	= (~ch_p('(') & ~ch_p(')') & ~ch_p('<') & ~ch_p('>') &
+ 			  ~ch_p('@') & ~ch_p(',') & ~ch_p(';') & ~ch_p(':') &
+ 			  ~ch_p('\\') & ~ch_p('\"') & ~ch_p('/') & ~ch_p('[') &
+ 			  ~ch_p(']') & ~ch_p('?') & ~ch_p('=') & ~ch_p('{') &
+ 			  ~ch_p('}') & SP_N & HT_N);
+  rule<> token          = +(CTLS_N & separators_n & CHAR); /* 1*<any CHAR except CTLs or separators>*/
+  rule<> ctext          = (~(ch_p('(')) & ~(ch_p(')')) & TEXT); /*<any TEXT excluding "(" and ")">;*/
+  rule<> quoted_pair    = ch_p('\\') >> CHAR; /* ch_p(\" >> CHAR */
+  rule<> qdtext         = (~(ch_p('\"')) & TEXT );/*<any TEXT except <">>*/
+  rule<> quoted_string  =  (ch_p('\"') >>*(qdtext | quoted_pair)  >> ch_p('\"'));/*( <"> *(qdtext | quoted-pair ) <"> )*/
+  rule<> comment        =  ch_p('(') >> *(ctext | quoted_pair | comment) >> ch_p(')'); /*"(" *( ctext | quoted-pair | comment ) ")"*/
+  
+  /*tests unitaires*/
+  /*rule ALPHA UALPHA LALPHA*/
+  try
+    {
+
+  std::cout<< "rule<> ALPHA :";
+  std::string str = "L";
+  std::cout<< "parsing :" << str << std::endl;
+
+  if (!parse(str.c_str(), ALPHA).full)
+    throw ZiaException("Alpha rule failed");
+  
+  str[0] = '-';
+  std::cout<< "parsing :" << str << std::endl;
+  if (parse(str.c_str(), ALPHA).full)
+    throw ZiaException("Alpha rule failed");
+  
+  /* rule CHAR*/
+  std::cout<< "rule<> CHAR :";
+  str = "-";
+  std::cout<< "parsing :" << str << std::endl;
+  if (!parse(str.c_str(), CHAR).full)
+    throw ZiaException("CHAR rule failed");
+
+  str = "\b";
+  std::cout<< "parsing :" << str << std::endl;
+  if (!parse(str.c_str(), CHAR).full)
+    throw ZiaException("CHAR rule failed");
+
+
+  /*chqr depqssqnt 127 doit fqil*/
+  str[0] = 255;
+  std::cout<< "parsing : " << str << std::endl;
+  if (parse(str.c_str(), CHAR).full)
+    throw ZiaException("CHAR rule failed");
+    
+  /*rule OCTET*/
+  std::cout << "rule<> OCTET :";
+  str[0] = 255;
+  std::cout<< "parsing : " << str << std::endl;
+  if (!parse(str.c_str(), OCTET).full)
+    throw ZiaException("OCTET rule failed");
+  
+
+  std::cout << "rule<> DIGIT :" << std::endl;
+  str = "0";
+  if (!parse(str.c_str(), DIGIT).full)
+    throw ZiaException("DIGIT rule failed");
+  str = "99";
+  if (parse(str.c_str(), DIGIT).full)
+    throw ZiaException("DIGIT rule failed");
+
+  std::cout << "rule<> CTL :" << std::endl;
+  std::cout << "rule<> CTL_N :" << std::endl;
+  std::cout << "rule<> CTLS :" << std::endl;
+  std::cout << "rule<> CTLS_N :" << std::endl;
+  std::cout << "rule<> HT :" << std::endl;
+  std::cout << "rule<> HT_N :" << std::endl;
+  std::cout << "rule<> SP :" << std::endl;
+  std::cout << "rule<> SP_N :" << std::endl;
+  std::cout << "rule<> CR :" << std::endl;
+  std::cout << "rule<> LF :" << std::endl;
+  std::cout << "rule<> CRLF :" << std::endl;
+  std::cout << "rule<> LWS :" << std::endl;
+  std::cout << "rule<> TEXT :" << std::endl;
+  std::cout << "rule<> HEX :" << std::endl;
+  std::cout << "rule<> separators :" << std::endl;
+  std::cout << "rule<> separators_n :" << std::endl;
+  std::cout << "rule<> token :" << std::endl;
+  std::cout << "rule<> ctext :" << std::endl;
+  std::cout << "rule<> quoted_pair :" << std::endl;
+  std::cout << "rule<> quoted_string :" << std::endl;
+  std::cout << "rule<> qdtext:" << std::endl;
+  std::cout << "rule<> comment :" << std::endl;
+
+    }
+  catch(std::exception& e)
+    {
+      std::cout<< e.what() <<std::endl;
+    }
+  
+ return (0);
+
+}

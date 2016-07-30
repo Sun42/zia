@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 19
+/ZYA/!svn/ver/6/src
+END
+Connection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/ZYA/!svn/ver/4/src/Connection.cpp
+END
+bnf_basic_rules.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/ZYA/!svn/ver/7/src/bnf_basic_rules.cpp
+END
+ZiaException.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/ZYA/!svn/ver/7/src/ZiaException.cpp
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/ZYA/!svn/ver/4/src/main.cpp
+END
+Server.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/ZYA/!svn/ver/4/src/Server.cpp
+END
+bnfparsing.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/ZYA/!svn/ver/7/src/bnfparsing.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/ZYA/!svn/ver/7/src/Makefile
+END

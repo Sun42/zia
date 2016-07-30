@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"  standalone="no"?>
+<!DOCTYPE plugin_conf SYSTEM "plugin_conf.dtd">
+
+<!--  -->
+<!--   -->
+
+<hives>
+  <hive name="PerlPlugin">
+    <entry key="binary path">/usr/bin/perl</entry>
+  </hive>
+</hives>

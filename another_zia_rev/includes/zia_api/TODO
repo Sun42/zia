@@ -1,0 +1,6 @@
+
+ - OK comment on dit que le header de response est pret pour etre balance
+	sur le reseau ? filter::Status special ? variable reference ? flag dans le httpResponse ?
+	et puis dans ce cas, il devrait etre const... a mediter
+
+- commentaires ou doc

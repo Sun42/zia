@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC  -Wextra -Wall  -shared -Wl,-soname,libpluginPHPCGI.so -o /home/chris/Documents/ZiaProject/libs/libpluginPHPCGI.so CMakeFiles/pluginPHPCGI.dir/src/filterPHPCGI.cpp.o CMakeFiles/pluginPHPCGI.dir/src/pluginPHPCGI.cpp.o -Wl,-Bstatic -lboost_system-gcc43-mt-1_39 -lboost_filesystem-gcc43-mt-1_39 -Wl,-Bdynamic 

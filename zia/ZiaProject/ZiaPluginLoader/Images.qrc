@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="/" >
+    <file>images/zia_plugin_loader.png</file>
+    <file>images/refresh.png</file>
+    <file>images/connect.png</file>
+    <file>images/disconnect.png</file>
+    <file>images/options.png</file>
+    <file>images/plugin_add.png</file>
+    <file>images/plugin_delete.png</file>
+    <file>images/plugin_disabled.png</file>
+    <file>images/plugin.png</file>
+    <file>images/quit.png</file>
+  </qresource>
+</RCC>

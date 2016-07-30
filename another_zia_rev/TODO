@@ -1,0 +1,17 @@
+~~~~~~~~~~~~~~~~~~~~~~ DOC ~~~~~~~~~~~~~~~~~~~~~~
+
+- Mettre a jour l'UML des modifications
+- Mettre les commentaires a jour ds doxygen
+
+~~~~~~~~~~~~~~~~~~~~~~ Test ~~~~~~~~~~~~~~~~~~~~~~
+
+- faire des upload et download pour voir les requetes http envoye
+- etudier le fonctionnement de post get head
+- Voir comment faire des chunk transfer (donc plusieurs envois, pour de gros fichiers) => comment un filter peut-il envoyer plusieurs responses??
+
+
+- requetes simultanees
+
+~~~~~~~~~~~~~~~~~~~~~~ Code ~~~~~~~~~~~~~~~~~~~~~~
+
+- un plugin POST
